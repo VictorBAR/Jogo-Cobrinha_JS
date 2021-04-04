@@ -57,6 +57,13 @@ function iniciarJogo(){
     if(direction == "up") snakeY -= box;
     if(direction == "down") snakeY += box;
 
+    for(i = 1; i < snake.length; i++){
+        if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
+            clearInterval(jogo);
+            alert("GAME OVER!")
+        }
+    }
+
     if(snakeX != food.x || snakeY != food.y){
         snake.pop();
     }else {
